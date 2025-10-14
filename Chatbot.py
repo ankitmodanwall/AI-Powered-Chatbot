@@ -1,11 +1,15 @@
 import openai
 import json
 import os
+from dotenv import load_dotenv
+
+#load env
+load_dotenv()
 
 # Set your OpenAI API key here
 openai.api_key = 'YOUR_API_KEY'
 
-CHAT_HISTORY_FILE = "chat_history.json"
+CHAT_HISTORY_FILE = os.getenv("OPENAI_API_KEY")
 
 def get_chatbot_response(messages):
     response = openai.ChatCompletion.create(
